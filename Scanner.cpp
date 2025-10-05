@@ -36,7 +36,7 @@ std::string Scanner::readWord(std::istream &in) {
     std::string word ="";
     bool inWord = false;
     while ( in.get(c)) {
-        c = std::toupper(static_cast<unsigned char>(c));
+        c = std::tolower(static_cast<unsigned char>(c));
         if (iswordChar(c)) {
             word += c;
             inWord = true;
