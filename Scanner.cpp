@@ -24,21 +24,20 @@ Scanner::Scanner(std::filesystem::path inputPath) {
 }
 
 
+static bool iswordChar(char c) {
+    return ( c >='a' && c <='z');
+}
 std::string Scanner::readWord(std::istream &in) {
 
-    auto is_ascii_letter = [](unsigned char c){
-        return (c >= 'a' && c <= 'z');
-    };
 
 
     bool lastApostrophe= false;
-    int letter = in.get();
     char c;
     std::string word ="";
     bool inWord = false;
-    while ( in.get()) {
-        c = std::toupper(static_cast<unsigned char>(letter));
-        if (is_ascii_letter(c)) {
+    while ( in.get(c)) {
+        c = std::toupper(static_cast<unsigned char>(c));
+        if (iswordChar(c)) {
             word += c;
             inWord = true;
             lastApostrophe = false;
