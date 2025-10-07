@@ -97,6 +97,7 @@ error_type Scanner::tokenize(std::vector<std::string>& words, const std::filesys
     if (ret == error_type::FILE_NOT_FOUND) {
         return ret;
     }
+
     std::ofstream outFile(outputFile);
     if (!outFile) {
         return error_type::FILE_NOT_FOUND;
