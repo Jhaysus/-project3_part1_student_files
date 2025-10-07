@@ -36,44 +36,9 @@ std::string Scanner::readWord(std::istream &in) {
     std::string word ="";
     bool inWord = false;
     while ( in.get(c)) {
-<<<<<<< HEAD
-=======
-        using traits = std::istream::traits_type;
-        unsigned char u = static_cast<unsigned char>(c);
-
-        //UTF-8 bytes: E2 80 99
-        //https://www.cogsci.ed.ac.uk/~richard/utf-8.cgi?input=2019&mode=hex
-        //checking each byte to see if it's a curly '
-        // byte by btye
-        // E2 80 99
-        if (u == 0xE2) {
-            int b1 = in.peek();
-            if (b1 != traits::eof() && static_cast<unsigned char>(b1) == 0x80) {
-                in.get();
-                int b2 = in.peek();
-                if (b2 != traits::eof() && static_cast<unsigned char>(b2) == 0x99) {
-                    in.get();
-                    c = '\'';   // normalize to ASCII apostrophe
-                } else {
-                    // not E2 80 99
-                    if (inWord) {
-                        break;
-                    }else {
-                        continue;
-                    }
-                }
-            } else {
-                if (inWord) {
-                    break;
-                }
-                else {
-                    continue;
-                }
-            }
-        }
 
         //go thorugh the word to do the Tokenize checklist
->>>>>>> a398b4e (Updated project files)
+
         c = std::tolower(static_cast<unsigned char>(c));
         if (iswordChar(c)) {
             word += c;
