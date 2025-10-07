@@ -24,30 +24,30 @@ Scanner::Scanner(std::filesystem::path inputPath) {
 }
 
 
-static bool iswordChar(char c) {
-    return ( c >='a' && c <='z');
+static bool iswordChar(char letter) {
+    return ( letter >='a' && letter <='z');
 }
 std::string Scanner::readWord(std::istream &in) {
 
 
 
-    bool lastApostrophe= false;
-    char c;
+    bool Apostrophe= false;
+    char letter;
     std::string word ="";
     bool inWord = false;
-    while ( in.get(c)) {
+    while ( in.get(letter)) {
 
         //go thorugh the word to do the Tokenize checklist
 
-        c = std::tolower(static_cast<unsigned char>(c));
-        if (iswordChar(c)) {
-            word += c;
+        letter = std::tolower(static_cast<unsigned char>(c));
+        if (iswordChar(letter)) {
+            word += letter;
             inWord = true;
-            lastApostrophe = false;
-        }else if ( c == '\'') {
-           if (inWord && !lastApostrophe) {
-               word += c;
-               lastApostrophe = true;
+            Apostrophe = false;
+        }else if ( letter == '\'') {
+           if (inWord && !Apostrophe) {
+               word += letter;
+               Apostrophe = true;
            }else if ( inWord) {
                break;
            }
