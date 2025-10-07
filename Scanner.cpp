@@ -39,7 +39,7 @@ std::string Scanner::readWord(std::istream &in) {
 
         //go thorugh the word to do the Tokenize checklist
 
-        letter = std::tolower(static_cast<unsigned char>(c));
+        letter = std::tolower(static_cast<unsigned char>(letter));
         if (iswordChar(letter)) {
             word += letter;
             inWord = true;
