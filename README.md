@@ -11,6 +11,7 @@
 - https://www.geeksforgeeks.org/cpp/tokenizing-a-string-cpp/
 - https://stackoverflow.com/questions/52878065/converting-input-from-lowercase-to-uppercase-using-ascii-codes-in-c
 - https://cplusplus.com/reference/istream/istream/
+- https://en.cppreference.com/w/cpp/filesystem/path/has_path.html
 
 - 
 ## Implementation Details:
