@@ -67,9 +67,19 @@ std::string Scanner::readWord(std::istream &in) {
 
 error_type Scanner::tokenize(std::vector<std::string>& words) {
     words.clear();
+    // namespace fs = std::filesystem;
+
+
+    //directory check
+    directoryExists(inputPath_);
+    //file check
+    regularFileExists(inputPath_);
+
     std::ifstream inFile(inputPath_);
+
+
     if (!inFile) {
-        return error_type::FILE_NOT_FOUND;
+        return error_type::UNABLE_TO_OPEN_FILE;
     }
     while (true) {
         std::string word = readWord(inFile);
